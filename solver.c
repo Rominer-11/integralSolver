@@ -25,6 +25,9 @@ int nextParenthesis(char * equation)
 
 int main()
 {
+	/**
+	 * Get input
+	 */
 	char equation[128];
 	printf("y = ");
 	fgets(equation, 64, stdin);
@@ -45,8 +48,18 @@ int main()
 	}
 	strcpy(equation, tempEquation);
 
+	char expression[128];
+	i = nextParenthesis(equation);
+	while (equation[i] != ')')
+	{
+		i++;
+	}
+	int startBound = nextParenthesis(equation);
+	int endBound = i;
+
 	printf("%s", equation);
-	printf("%i", nextParenthesis(equation));
+	printf("%i", startBound);
+	printf("%i", endBound);
 
 	return 0;
 }
